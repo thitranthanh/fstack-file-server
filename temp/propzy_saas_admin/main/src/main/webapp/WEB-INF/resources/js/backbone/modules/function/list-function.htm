@@ -1,0 +1,94 @@
+<div class="row">
+	<div class="col-md-12">
+		<!-- BOX -->
+		<div class="<%= skin.BOX %>">
+			<div class="box-title">
+				<h4>
+					<img src="resources/img/daviteq-icon/common/list-white-04.png"
+					style="margin-top: -3px;">
+					The List Of Functions
+				</h4>
+				<div class="tools hidden-xs">
+					 <a href="javascript:;" class="reload" name="btnReload"> 
+					 <i class="fa fa-refresh"></i>
+					</a>
+				</div>
+			</div>
+			<div class="box-body">
+				<!-- thanhuy.nguyen 0000062 add start -->
+				<div style="float: right; padding-bottom: 2px;">
+					<button class="btn <%= skin.BUTTONS.BTN_BACK[0] %>"
+						name="btnReturnListRoles">
+						Back
+					</button>
+					<% if(btnAdd.isShow) { %>
+					<button class="btn <%= skin.BUTTONS.BTN_ADD[0] %>"
+						name="btnAddFunction">
+						<i class="<%= skin.BUTTONS.BTN_ADD[1] %>"></i> <%= btnAdd.text %>
+					</button>
+					<% } %>
+				</div>
+				<!-- thanhuy.nguyen 0000062 add end -->
+				
+				<table id="datatable1" cellpadding="0" cellspacing="0" border="0"
+					class="datatable table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Role ID</th>
+							<th>Permission ID</th>
+							<th>Permission Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						 <% _.each(functionObjects,function(functionOject, key, list){ %>
+						<tr>
+							<td>
+								<div class="btn-group dropdown">
+									<button class="btn btn-default dropdown-toggle"
+										data-toggle="dropdown">
+										<i class="fa fa-list-ul"></i>
+										<span class="caret"></span>
+									</button>
+									
+									<ul class="dropdown-menu pull-left">
+									
+									<% if(functionOject.actionButtons.btnViewOrEdit.isShow) { %>
+										<li>
+											<a href="#<%=functionOject.editLink %>">
+												<img src="<%= functionOject.actionButtons.btnViewOrEdit.iconView %>" class="ems-icon-size">
+												<span class="dropdown-item-padding-10"> 
+												<%= functionOject.actionButtons.btnViewOrEdit.text %>
+												</span>
+											</a>
+										</li>
+									<% } %>
+											
+									<% if(functionOject.actionButtons.btnDelete.isShow ) { %>
+											<li>
+												<a href="#" roleId="<%=functionOject.primaryKey.roleId %>" functionName="<%= functionOject.permissionName %>"
+												functionId="<%= functionOject.primaryKey.permissionId %>" name="btnDeleteFunction">
+													<img src="<%= iconImage.deleteIcon %>" class="ems-icon-size"> 
+													<span class="dropdown-item-padding-10"> 
+													<%= functionOject.actionButtons.btnDelete.text %>
+													</span>
+												</a>
+											</li>
+ 									<% } %>
+ 									
+									</ul>
+								</div>
+							</td> 
+							<td><%= functionOject.primaryKey.roleId %></td>
+							<td><%= functionOject.primaryKey.permissionId %></td>
+							<td><%= functionOject.permissionName %></td>
+							<!-- <td><= listStatusHtml[trending.status] ></td> -->
+						</tr>
+						<% }) %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- /BOX -->
+	</div>
+</div>

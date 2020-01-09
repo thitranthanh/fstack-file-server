@@ -1,0 +1,69 @@
+<div class="row">
+	<div class="col-md-12">
+		<!-- BOX -->
+		<div class="<%= skin.BOX %>" id="formWizard">
+			<div class="box-title">
+				<h4>
+					<img src="<%= viewState.iconSource %>" style="margin-top: -3px;"> 
+					<%= viewState.headerText %>
+				</h4>
+			</div>
+			<div class="box-body">
+				<form id="functionWizform" class="form-horizontal" action="#">
+					<div class="form-group">
+						<label class="control-label col-md-3">Role Name<span
+							class="required">*</span></label>
+						<div class="col-md-4">
+							<input type="text" class="form-control press-enter"
+								name="roleName" value='' id="txtRoleName" maxlength="" /> <span
+								class="error-span"></span>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Permission ID<span
+							class="required">*</span></label>
+						<div class="col-md-4">
+							<input type="text" class="form-control press-enter"
+								name="permissionId" value='' id="txtPermissionId"
+								placeholder="Please provide permission id"
+								maxlength="<%= validationRules.permissionId.maxlength %>" /> <span
+								class="error-span"></span>
+						</div>
+						<span class="loading" style="display: none"><img
+							src="resources/img/ajax-loaders/ajax-loader-1.gif"
+							style="padding-top: 6px"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Permission Name<span
+							class="required">*</span></label>
+						<div class="col-md-4">
+							<input type="text" class="form-control press-enter"
+								name="permissionName" value='' id="txtPermissionName"
+								placeholder="Please provide permission name"
+								maxlength="<%= validationRules.permissionName.maxlength %>" />
+							<span class="error-span"></span>
+						</div>
+					</div>
+				</form>
+				<div class="wizard-buttons">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-md-offset-3 col-md-9">
+								<a href="javascript:;"
+									class="btn <%= skin.BUTTONS.BTN_CANCEL[0] %> cancelBtn"
+									id="btnCancelFunction" name="btnCancelFunction"> <i
+									class="fa <%= skin.BUTTONS.BTN_CANCEL[1] %>"></i> Cancel
+								</a> <% if(isShowBtnSubmit) { %> <a href="javascript:;"
+									class="btn <%= skin.BUTTONS.BTN_SUBMIT[0] %> submitBtn"
+									id="btnAddOrUpdateFunction" name="btnSubmitFunction"><i
+									class="fa fa-save"></i> <%= viewState.btnSubmitText %> </a> <% } %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /BOX -->
+	</div>
+</div>

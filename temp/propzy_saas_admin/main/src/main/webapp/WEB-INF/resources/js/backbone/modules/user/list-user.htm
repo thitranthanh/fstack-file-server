@@ -1,0 +1,100 @@
+<div class="row animated fadeInRight">
+	<div class="col-lg-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>List Of User</h5>
+				<!-- <div class="ibox-tools">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+					</a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-wrench"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-user">
+						<li><a href="#">Config option 1</a></li>
+						<li><a href="#">Config option 2</a></li>
+					</ul>
+					<a class="close-link"> <i class="fa fa-times"></i>
+					</a>
+				</div> -->
+				<% if(authorities['isAdd']) { %>
+					<button id="btnAdd" type="button" 
+						class="btn btn-primary btn-xs pull-right ladda-button" 
+						data-style="zoom-in">Add User</button>
+				<% } %>
+			</div>
+			<div class="ibox-content">
+				<div class="table-responsive" style="padding-bottom: 40px;">
+					<table id="tblUsers"
+						class="table table-striped table-bordered table-hover dataTables-example">
+						<thead>
+							<tr>
+								<% if(authorities['isView'] || authorities['isUpdate'] || authorities['isDelete']) { %>
+									<th></th>
+								<% } %>
+								<th>Full Name</th>
+								<th>Gender</th>
+								<th>Email</th>
+								<th>Contact Number</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% _.each(users,function(user, key, list){ %>
+								<tr>
+									<% if(authorities['isView'] || authorities['isUpdate'] || authorities['isDelete']) { %>
+									<td>
+										<div class="btn-group">
+											<button style="margin-bottom: 0px" data-toggle="dropdown"
+												class="btn btn-primary btn-xs dropdown-toggle"><span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+												<% if(authorities['isView'] || authorities['isUpdate']) { %>
+													<li>
+														<a href="#edit" user-id="<%= user.id %>"
+															onclick="return router.currentView.editUser(this);">
+															<% if(authorities['isUpdate']) { %>
+																Edit
+															<% } else if(authorities['isView']) { %>
+																View
+															<% } %>
+														</a>
+													</li>
+												<% } %>
+												
+												<% if(authorities['isUpdate']) { %>
+													<li><a href="#reset-password" user-id="<%= user.id %>"
+														onclick="return router.currentView.resetPassword(this);">Reset Password</a></li>
+												<% } %>
+												<!-- <li class="divider"></li> -->
+												<% if(authorities['isUpdate']) { %>
+													<% if(user['isStatusActived']) { %>
+														<li><a href="#lock-user" user-id="<%= user.id %>" 
+															user-status="<%= user['userStatusLocked'] %>"
+															onclick="return router.currentView.changeUserStatus(this);">Lock</a></li>
+													<% } else { %>
+														<li><a href="#unlock-user" user-id="<%= user.id %>" 
+															user-status="<%= user['userStatusActived'] %>"
+															onclick="return router.currentView.changeUserStatus(this);">Unlock</a></li>
+													<% } %>
+												<% } %>
+												<% if(authorities['isDelete'] && !user['isStatusActived']) { %>
+													<li><a href="#delete" user-id="<%= user.id %>"
+														onclick="return router.currentView.deleteUser(this);">Delete</a></li>
+												<% } %>
+											</ul>
+										</div>
+									</td>
+									<% } %>
+									<td><%= user.fullName %></td>
+									<td><%= user.genderHtml %></td>
+									<td><i class="fa fa-envelope contact-type"> </i> <%= user.emailAddress %></td>
+									<td><i class="fa fa-phone contact-type"> </i> <%= user.contactNumber %></td>
+									<td><%= user.statusHtml %></td>
+								</tr>
+							<% }) %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

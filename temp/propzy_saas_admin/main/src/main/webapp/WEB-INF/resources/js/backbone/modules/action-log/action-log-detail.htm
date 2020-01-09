@@ -1,0 +1,49 @@
+<div class="row animated fadeInRight">
+	<div class="col-lg-12">
+		<div class="ibox">
+			<div class="row">
+				<div class="col-lg-12">
+					<dl class="dl-horizontal">
+						<dt>Status:</dt>
+						<dd>
+							<%= actionLog.statusHtml %>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<dl class="dl-horizontal">
+						<dt>Time:</dt>
+						<dd><%= actionLog.strDateTime %></dd>
+					</dl>
+					<dl class="dl-horizontal">
+						<dt>Username:</dt>
+						<dd><%= actionLog.username %></dd>
+					</dl>
+					<dl class="dl-horizontal">
+						<dt>Action:</dt>
+						<dd><%= actionLog.action %></dd>
+					</dl>
+					<dl class="dl-horizontal">
+						<dt>Function:</dt>
+						<dd><%= actionLog.function %></dd>
+					</dl>
+					<dl class="dl-horizontal">
+						<dt>Input:</dt>
+						<dd style="word-break: break-all;">
+							<%= actionLog.input %></dd>
+					</dl>
+					<dl class="dl-horizontal">
+						<dt>Output:</dt>
+						<dd style="word-break: break-all;"><%= actionLog.output %></dd>
+					</dl>
+					<dl class="dl-horizontal">
+						<dt>Comment:</dt>
+						<dd style="word-break: break-all;"><%= actionLog.comment %></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

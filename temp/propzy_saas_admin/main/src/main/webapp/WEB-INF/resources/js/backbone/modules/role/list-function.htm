@@ -1,0 +1,22 @@
+<div class="row animated fadeInRight">
+	<div class="col-lg-12">
+		<div class="table-responsive" style="padding-bottom: 40px;">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Permission Id</th>
+						<th>Permission Name</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% _.each(functions, function(_function, key, list){ %>
+					<tr>
+						<td><%= _function.permissionId %></td>
+						<td><%= _function.permissionName %></td>
+					</tr>
+				<% }) %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

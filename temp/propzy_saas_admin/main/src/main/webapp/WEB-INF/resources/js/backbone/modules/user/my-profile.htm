@@ -1,0 +1,140 @@
+<div class="row animated fadeInRight">
+	<div class="col-lg-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>Profile of '<%= user['fullName'] %>'</h5>
+				<!-- <div class="ibox-tools">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+					</a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-wrench"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-user">
+						<li><a href="#">Config option 1</a></li>
+						<li><a href="#">Config option 2</a></li>
+					</ul>
+					<a class="close-link"> <i class="fa fa-times"></i>
+					</a>
+				</div> -->
+			</div>
+			<div class="ibox-content">
+				<div class="tabs-container">
+					<ul class="nav nav-tabs">
+						<li class="active"><a id="tab1" data-toggle="tab"
+							href="#tab-1"> Basic Information</a></li>
+						<li class=""><a id="tab2" data-toggle="tab" 
+							href="#tab-2"> Change Password</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="tab-1" class="tab-pane fade in active">
+							<div class="row animated fadeInRight">
+								<div class="col-lg-12">
+									<div class="panel-body">
+										<form class="form-horizontal">
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Full Name</label>
+												<div class="col-md-6">
+													<input class="form-control" type="text" placeholder="Enter full name" 
+														id="txtFullName" value="<%= user['fullName'] %>">
+												</div> 
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Gender</label>
+												<div class="col-md-2">
+													<select class="form-control" id="selectGender">
+													</select>
+												</div> 
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Contact Number</label>
+												<div class="col-md-6">
+													<input class="form-control" type="text" placeholder="Enter contact number" 
+														id="txtContactNumber" value="<%= user['contactNumber'] %>">
+												</div> 
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Email</label>
+												<div class="col-md-6">
+													<input class="form-control" type="text" placeholder="Enter email" 
+														id="txtEmail" value="<%= user['emailAddress'] %>">
+												</div> 
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">User Name</label>
+												<div class="col-md-6">
+													<input class="form-control" type="text" placeholder="Enter user name" disabled="disabled"
+														id="txtUserName" value="<%= user['username'] %>">
+												</div> 
+											</div>
+											<!-- <div class="form-group">
+												<label class="col-sm-2 control-label">Password</label>
+												<div class="col-md-6">
+													<input class="form-control" type="password" placeholder="Enter password" 
+														id="txtPassword">
+												</div> 
+											</div> -->
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Status</label>
+												<div class="col-md-2">
+													<select class="form-control" id="selectStatus" disabled="disabled">
+													</select>
+												</div> 
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Groups</label>
+												<div class="col-md-6">
+													<select class="form-control" id="selectGroup" multiple="multiple" disabled="disabled">
+													</select>
+												</div> 
+											</div>
+											<div style="text-align: right">
+												<button id="btnSubmit" class="btn btn-sm btn-primary m-t-n-xs" type="button">
+													<strong>Save Changes</strong>
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-2" class="tab-pane fade">
+							<div class="row animated fadeInRight">
+								<div class="col-lg-12">
+									<div class="panel-body">
+										<form class="form-horizontal">
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Password</label>
+												<div class="col-md-6">
+													<input class="form-control" type="password" placeholder="Enter password" 
+														id="txtOldPassword">
+												</div> 
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">New Password</label>
+												<div class="col-md-6">
+													<input class="form-control" type="password" placeholder="Enter new password" 
+														id="txtNewPassword">
+												</div> 
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Confirm New Password</label>
+												<div class="col-md-6">
+													<input class="form-control" type="password" placeholder="Enter confirm new password" 
+														id="txtConfirmNewPassword">
+												</div> 
+											</div>
+											<div style="text-align: right">
+												<button id="btnChangePassword" class="btn btn-sm btn-primary m-t-n-xs" type="button">
+													<strong>Change Password</strong>
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="col-sm-4">
+	<h2><%= header %></h2>
+	<ol class="breadcrumb">
+		<% _.each(list, function(item, key, l){ %>
+			<% if (typeof(item.url) != "undefined") { %>
+				<li><a href="<%= item.url %>"><%= item.name %></a></li>
+			<% } else { %>
+				<li class="active"><strong><%= item.name %></strong></li>
+			<% } %>
+		<% }) %>
+	</ol>
+</div>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security.xsd 
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd ">
+
+	<security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/web/controller/authenticated/*" access="isAuthenticated()" />
+		<security:intercept-url pattern="/index" access="isAuthenticated()" />
+		<security:form-login login-page="/login" default-target-url="index#users"
+			authentication-success-handler-ref="customUserDetailsService" 
+			authentication-failure-handler-ref="customUserDetailsService"/>
+		<security:logout invalidate-session="true" delete-cookies="JSESSIONID" 
+			success-handler-ref="customUserDetailsService"/>
+		<!-- <access-denied-handler error-page="/accessDenied"/> -->
+        <security:session-management invalid-session-url="/expiredSession" session-fixation-protection="none" >
+<!--             <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" expired-url="/expiredSession" /> -->
+        </security:session-management>
+	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailsService">
+			<!-- <password-encoder hash="md5" /> -->
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<bean id="customUserDetailsService" class="com.esb.web.authentication.AuthenticationHandler" /> 
+	
+</beans>
