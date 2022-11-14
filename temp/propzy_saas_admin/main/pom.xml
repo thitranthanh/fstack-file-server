@@ -11,7 +11,7 @@
 	<properties>
 		<jdk.version>1.8</jdk.version>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
-		<spring.version>4.0.7.RELEASE</spring.version>
+		<spring.version>4.2.7.RELEASE</spring.version>
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		<spring.security.oauth2.version>2.0.7.RELEASE</spring.security.oauth2.version>
 
